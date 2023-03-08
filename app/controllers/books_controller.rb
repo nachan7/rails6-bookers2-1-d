@@ -10,8 +10,14 @@ before_action :correct_user, only: [:edit, :update]
   end
 
   def index
-    @book = Book.new
-    @books = Book.all
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:rate_count]
+      @books = Book.rate_count
+    else
+      @books = Book.all
+    end
+      @book = Book.new
   end
 
   def create
