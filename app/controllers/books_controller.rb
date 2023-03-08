@@ -53,7 +53,7 @@ before_action :correct_user, only: [:edit, :update]
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :rate)
+    params.require(:book).permit(:title, :body, :rate, :tag)
   end
 
   def correct_user

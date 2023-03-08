@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
+  get "tag_search" => "tag_searches#tag_search"
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resource :favorites, only: [:create, :destroy]
