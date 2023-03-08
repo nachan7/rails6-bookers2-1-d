@@ -5,7 +5,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree . #require_treeより上にjquery、jquery_ujsを書くこと
+//= require_tree
 //= require activestorage
 
 import Rails from "@rails/ujs"
@@ -21,3 +21,13 @@ import "../stylesheets/application"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+global.$ = jQuery;
+window.$ = jQuery;
+
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
